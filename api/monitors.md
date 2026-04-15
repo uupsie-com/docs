@@ -1,6 +1,6 @@
 # Monitors
 
-Monitors are the core of Beacon. They periodically check the health of your services and report status changes.
+Monitors are the core of Uupsie. They periodically check the health of your services and report status changes.
 
 ## Monitor Types
 
@@ -118,7 +118,7 @@ For `k8s_pod`, `k8s_deployment`, `k8s_service`, and `k8s_node` types:
 | `config.port` | integer | For `k8s_service` | Service port to probe (1–65535) |
 
 ::: tip
-Kubernetes monitors require the [Beacon agent](/agent/) running in your cluster. The agent watches the resources and reports status to the API.
+Kubernetes monitors require the [Uupsie agent](/agent/) running in your cluster. The agent watches the resources and reports status to the API.
 :::
 
 **Example — HTTP monitor:**

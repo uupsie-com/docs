@@ -1,6 +1,6 @@
 # Supported Resources
 
-The Beacon agent monitors four types of Kubernetes resources. Each uses a different detection mechanism and health evaluation logic.
+The Uupsie agent monitors four types of Kubernetes resources. Each uses a different detection mechanism and health evaluation logic.
 
 ## Pods
 
@@ -8,7 +8,7 @@ The Beacon agent monitors four types of Kubernetes resources. Each uses a differ
 
 The agent watches Pods via Kubernetes informers (real-time event stream). Health is evaluated on every change event.
 
-| Pod State | Beacon Status | Notes |
+| Pod State | Status | Notes |
 |-----------|--------------|-------|
 | `Running`, all containers ready | `up` | Healthy |
 | `Running`, any container not ready | `down` | Reports which container is not ready |
@@ -36,7 +36,7 @@ For most use cases, monitoring the **Deployment** is more useful than individual
 
 Watched via Kubernetes informers. Health is based on the ratio of available replicas to desired replicas.
 
-| Condition | Beacon Status | Notes |
+| Condition | Status | Notes |
 |-----------|--------------|-------|
 | `available >= desired` | `up` | All replicas running |
 | `0 < available < desired` | `degraded` | Partial availability (e.g. "2/3 replicas available") |
@@ -60,7 +60,7 @@ This is the most common Kubernetes monitor type. It tracks rolling updates, scal
 
 Services are monitored with **active TCP probes** rather than informers. The agent periodically connects to the service's ClusterIP on the specified port.
 
-| Condition | Beacon Status | Notes |
+| Condition | Status | Notes |
 |-----------|--------------|-------|
 | TCP connection succeeds | `up` | Reports response time |
 | TCP connection fails | `down` | Reports error message and response time |
@@ -98,7 +98,7 @@ The `port` field is required for Service monitors. It should be the port your se
 
 Watched via Kubernetes informers. Health is based on the `NodeReady` condition.
 
-| Condition | Beacon Status | Notes |
+| Condition | Status | Notes |
 |-----------|--------------|-------|
 | `NodeReady` is `True` | `up` | Node is healthy |
 | `NodeReady` is not `True` | `down` | Reports the condition message |

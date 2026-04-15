@@ -1,6 +1,6 @@
 # Webhooks
 
-Webhooks send HTTP POST requests to your URL when events occur. Use them to integrate Beacon with your own systems.
+Webhooks send HTTP POST requests to your URL when events occur. Use them to integrate Uupsie with your own systems.
 
 ## Events
 
@@ -75,7 +75,7 @@ curl -X POST https://api.uupsie.com/api/v1/webhooks \
   -H "Authorization: Bearer YOUR_API_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
-    "url": "https://example.com/beacon-webhook",
+    "url": "https://example.com/uupsie-webhook",
     "events": ["monitor.status_changed", "incident.created"],
     "secret": "whsec_your_signing_secret"
   }'
@@ -95,7 +95,7 @@ DELETE /webhooks/:id
 
 ## Verifying Signatures
 
-If you provide a `secret`, Beacon signs each delivery with an HMAC-SHA256 signature in the `X-Beacon-Signature` header. Verify it to ensure the payload is authentic:
+If you provide a `secret`, Uupsie signs each delivery with an HMAC-SHA256 signature in the `X-Uupsie-Signature` header. Verify it to ensure the payload is authentic:
 
 ```javascript
 const crypto = require('crypto');
@@ -118,7 +118,7 @@ function verifySignature(payload, signature, secret) {
 {
   "data": {
     "id": "...",
-    "url": "https://example.com/beacon-webhook",
+    "url": "https://example.com/uupsie-webhook",
     "format": "json",
     "events": ["monitor.status_changed"],
     "is_enabled": true,

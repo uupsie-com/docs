@@ -1,6 +1,6 @@
 # Incidents
 
-Incidents represent downtime events tied to a specific monitor. They can be created automatically by Beacon when a monitor goes down, or manually via the API.
+Incidents represent downtime events tied to a specific monitor. They can be created automatically by Uupsie when a monitor goes down, or manually via the API.
 
 ## List Incidents
 

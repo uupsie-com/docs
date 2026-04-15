@@ -1,8 +1,8 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: 'Beacon Docs',
-  description: 'Documentation for Beacon — uptime monitoring, status pages, and Kubernetes observability.',
+  title: 'Uupsie Docs',
+  description: 'Documentation for Uupsie — uptime monitoring, status pages, and Kubernetes observability.',
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
   ],

@@ -1,6 +1,6 @@
 # Getting Started
 
-Beacon is an uptime monitoring platform with built-in status pages and Kubernetes observability.
+Uupsie is an uptime monitoring platform with built-in status pages and Kubernetes observability.
 
 ## Creating an Account
 

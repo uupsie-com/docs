@@ -1,6 +1,6 @@
 # API Tokens
 
-API tokens provide programmatic access to the Beacon API. Tokens are scoped to your organization.
+API tokens provide programmatic access to the Uupsie API. Tokens are scoped to your organization.
 
 ## List Tokens
 

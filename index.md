@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: Beacon
+  name: Uupsie
   text: Documentation
   tagline: Uptime monitoring, status pages, and Kubernetes observability.
   actions:

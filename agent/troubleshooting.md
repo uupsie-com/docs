@@ -5,8 +5,8 @@
 **Check the pod status:**
 
 ```bash
-kubectl -n beacon get pods
-kubectl -n beacon describe pod -l app=beacon-agent
+kubectl -n uupsie get pods
+kubectl -n uupsie describe pod -l app=uupsie-agent
 ```
 
 **Common causes:**
@@ -16,7 +16,7 @@ kubectl -n beacon describe pod -l app=beacon-agent
 ## Agent Crashes on Startup
 
 ```bash
-kubectl -n beacon logs -l app=beacon-agent
+kubectl -n uupsie logs -l app=uupsie-agent
 ```
 
 | Error | Cause | Fix |
@@ -32,14 +32,14 @@ If the agent is running but the resource picker in the dashboard is empty:
 1. **Check RBAC** — ensure the ClusterRole and ClusterRoleBinding exist:
 
    ```bash
-   kubectl get clusterrole beacon-agent
-   kubectl get clusterrolebinding beacon-agent
+   kubectl get clusterrole uupsie-agent
+   kubectl get clusterrolebinding uupsie-agent
    ```
 
 2. **Check inventory logs** — look for inventory reporting in the agent logs:
 
    ```bash
-   kubectl -n beacon logs -l app=beacon-agent | grep inventory
+   kubectl -n uupsie logs -l app=uupsie-agent | grep inventory
    ```
 
 3. **Verify the token** — the API token must belong to the same organization where you're trying to create monitors.
@@ -50,11 +50,11 @@ Kubernetes monitors show "unknown" status until the agent reports its first chec
 
 If it persists:
 
-- **Agent not running** — check `kubectl -n beacon get pods`
+- **Agent not running** — check `kubectl -n uupsie get pods`
 - **Config not refreshed** — the agent fetches its monitor list on an interval. Wait for the config refresh (default: 60 seconds), or restart the agent pod:
 
   ```bash
-  kubectl -n beacon rollout restart deployment beacon-agent
+  kubectl -n uupsie rollout restart deployment uupsie-agent
   ```
 
 - **Resource not found** — the agent can only monitor resources that exist in the cluster. Verify the namespace and resource name match exactly.
@@ -83,8 +83,8 @@ If the agent is using more memory than expected, it's likely watching a large nu
 For very large clusters, increase the memory limit:
 
 ```bash
-helm upgrade beacon-agent oci://ghcr.io/uupsie-com/agent/helm/agent \
-  --namespace beacon \
+helm upgrade uupsie-agent oci://ghcr.io/uupsie-com/agent/helm/agent \
+  --namespace uupsie \
   --set resources.limits.memory=512Mi \
   --reuse-values
 ```
@@ -93,6 +93,6 @@ helm upgrade beacon-agent oci://ghcr.io/uupsie-com/agent/helm/agent \
 
 If you're still stuck, reach out at [support@uupsie.com](mailto:support@uupsie.com) with:
 
-- Agent logs (`kubectl -n beacon logs -l app=beacon-agent`)
+- Agent logs (`kubectl -n uupsie logs -l app=uupsie-agent`)
 - Kubernetes version (`kubectl version`)
 - Helm values (redact your API token)

@@ -6,8 +6,8 @@ The agent is configured via environment variables, set through Helm values.
 
 | Value | Default | Description |
 |-------|---------|-------------|
-| `apiURL` | — | **(Required)** Beacon API base URL |
-| `apiToken` | — | **(Required)** Beacon API token |
+| `apiURL` | — | **(Required)** Uupsie API base URL |
+| `apiToken` | — | **(Required)** Uupsie API token |
 | `configRefreshInterval` | `60s` | How often to re-fetch the monitor list from the API |
 | `image.repository` | `ghcr.io/uupsie-com/agent` | Docker image repository |
 | `image.tag` | `latest` | Docker image tag |
@@ -23,7 +23,7 @@ These are set automatically by the Helm chart, but documented here for reference
 
 | Variable | Required | Default | Description |
 |----------|----------|---------|-------------|
-| `AGENT_API_URL` | Yes | — | Beacon API base URL (e.g. `https://api.uupsie.com`) |
+| `AGENT_API_URL` | Yes | — | Uupsie API base URL (e.g. `https://api.uupsie.com`) |
 | `AGENT_API_TOKEN` | Yes | — | Sanctum API token |
 | `AGENT_CONFIG_INTERVAL` | No | `5m` | Config refresh interval (Go duration string: `30s`, `5m`, `1h`) |
 
@@ -49,9 +49,9 @@ resources:
 Then install with:
 
 ```bash
-helm install beacon-agent oci://ghcr.io/uupsie-com/agent/helm/agent \
+helm install uupsie-agent oci://ghcr.io/uupsie-com/agent/helm/agent \
   -f values.yaml \
-  --namespace beacon \
+  --namespace uupsie \
   --create-namespace
 ```
 
