@@ -1,0 +1,25 @@
+{
+  "name": "beacon-docs",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uupsie-com/docs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/uupsie-com/docs/issues"
+  },
+  "homepage": "https://github.com/uupsie-com/docs#readme",
+  "devDependencies": {
+    "vitepress": "^1.6.4"
+  }
+}
